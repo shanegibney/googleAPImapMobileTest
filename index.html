@@ -37,8 +37,21 @@
                 zoom: 8
             });
         }
+
+        function geoError() {
+            alert("Geocoder failed.");
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(initMap, geoError);
+                // alert("Geolocation is supported by this browser.");
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc7FZQ6jG2VcxnxbMNdkPFFzrUsJxq-ys&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc7FZQ6jG2VcxnxbMNdkPFFzrUsJxq-ys&callback=getLocation" async defer></script>
 </body>
 
 </html>
